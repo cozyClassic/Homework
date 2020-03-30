@@ -124,6 +124,13 @@
             </div>
             <button id="button_order" onclick="input_value()" type="button" class="btn btn-primary button">주문하기</button>
 
+            <div>
+                <ul id=list_order>
+                    <li> 첫줄 </li>
+
+                </ul>
+            </div>
+
         </div>
 
 
@@ -150,13 +157,14 @@
             let quantity = $('#input_quantity').val();
             let address = $('#input_address').val();
             let mobile_number = $('#input_mobile_number').val();
+            let temp_html = '<li>' + value + '</li>';
             console.log(mobile_number.indexOf('-'));
             console.log(mobile_number.lastIndexOf('-'));
             console.log(mobile_number.length);
-            console.log(mobile_number.indexOf('010') !=0);
+            console.log(mobile_number.indexOf('010') != 0);
             console.log((mobile_number.indexOf('-') != 3));
-            console.log((mobile_number.lastIndexOf('-') != 8 ));
-            console.log( (mobile_number.length != 13));
+            console.log((mobile_number.lastIndexOf('-') != 8));
+            console.log((mobile_number.length != 13));
             if (customer_name == "") {
                 alert('이름을 입력하세요!');
             } else if (quantity == "Choose...") {
@@ -168,7 +176,10 @@
             }
             else if ((mobile_number.indexOf('010') != 0) || (mobile_number.indexOf('-') != 3) || (mobile_number.lastIndexOf('-') != 8) || (mobile_number.length != 13)) {
                 alert('전화번호 입력형식이 틀립니다.' + '\n' + '010-OOOO-OOOO로 입력해주세요.');
-            }
+            } else (
+                $('#list_order').append(temp_html);
+
+            )
         }
 
     </script>
